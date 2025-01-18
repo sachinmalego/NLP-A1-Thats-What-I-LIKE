@@ -56,7 +56,8 @@ The web application allows you to:
 - `word_test`: Contains the word repo of provided dataset
 - For the `glove.6B.100d.txt` please download it from Kaggle or Google. It is readily available in the internet.
 
-## Video of Working application:  https://drive.google.com/file/d/1Y0JF2sfW6w1TMBjQl3zMfmvAWBkNXSc8/view?usp=sharing
+## Video of Working application:  
+https://drive.google.com/file/d/1Y0JF2sfW6w1TMBjQl3zMfmvAWBkNXSc8/view?usp=sharing
 
 ## Contributing
 Contributions are welcome! To contribute:
