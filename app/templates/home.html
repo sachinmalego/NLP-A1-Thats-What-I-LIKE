@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>A1: That's What I Like</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <header>
+        <div class="logo">
+            <h1><b>A1: That's What I Like</b></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="query_box">
+        <h3 class="web_title">Select model & enter word to search similar context words</h3></br>
+        <form action="/" method="POST">
+            <div class="form-row">
+                <label for="model">Select Model:</label>
+                <select name="model" id="model">
+                    <option value="glove">GloVe</option>
+                    <option value="skipgram">Skipgram</option>
+                    <option value="skipgram_neg">Skipgram NEG</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="query">Enter word:</label>
+                <input type="text" name="query" id="query" placeholder="Type a word..." required>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <h4 style="display: {{ show_text }}">Top 10 most similar words to <b>"{{ input }}"</b> with model "{{model_choice}}"</h4>
+    
+    <table style="display: {{ show_table }}">
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Similarity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in most_sim %}
+            <tr>
+                <td>{{ row.word }}</td>
+                <td>{{ row.sim }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
