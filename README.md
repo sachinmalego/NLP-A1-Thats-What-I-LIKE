@@ -51,7 +51,12 @@ The web application allows you to:
 
 ## Files and Directories
 - `app/`: Contains the web application code and necessary files.
-- `requirements.txt`: Lists the Python dependencies required for the project.
+- `documents/`: Contains the pdf documents of the A1 assignment.
+- `screenshots/`: Contains the screenshots and video of the working application.
+- `word_test`: Contains the word repo of provided dataset
+- For the `glove.6B.100d.txt` please download it from Kaggle or Google. It is readily available in the internet.
+
+## Video of Working application:  https://drive.google.com/file/d/1Y0JF2sfW6w1TMBjQl3zMfmvAWBkNXSc8/view?usp=sharing
 
 ## Contributing
 Contributions are welcome! To contribute:
@@ -71,7 +76,7 @@ Contributions are welcome! To contribute:
 5. Submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+This project is free to use for Academic purposes.
 
 ## Acknowledgments
 - Word2Vec: [Mikolov et al., 2013](https://arxiv.org/abs/1301.3781)

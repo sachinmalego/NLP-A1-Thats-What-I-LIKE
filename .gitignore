@@ -1,2 +1,4 @@
 #large files
 word_test/glove.6B.100d.txt
+
+.gitignore
