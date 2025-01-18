@@ -27,10 +27,7 @@ This application provides a user-friendly interface to interact with Word2Vec an
    cd app
    ```
 
-3. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. Install the required Python packages.
 
 ### Deployment
 1. Open the `app` folder in VSCode or your preferred editor.
