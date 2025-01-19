@@ -1,23 +1,21 @@
 import numpy as np
 
-# function to find the most similar word to the input vector
 def get_most_similar(word, embeddings, n):
-    # retrieve all words in our embeddings vocabs
+    # Retrieve all words in our embeddings vocabulary
     vocabs = list(embeddings.keys())
     names = ['word', 'sim']
 
-    try:
-        vector = embeddings[word.lower()]
-    except:
-        vector = embeddings['<UNK>']
-    
-    similarities = {}
+    # Get the embedding vector for the input word, or <UNK> if not found
+    vector = embeddings.get(word.lower(), embeddings.get('<UNK>'))
+    if vector is None:
+        raise ValueError("Word not found and '<UNK>' is not in the embeddings.")
 
-    # for each word in the vocabs, find the cosine similarities between word vectors in our embeddings and the input vector
-    for vocab in vocabs:
-        sim = np.dot(vector, embeddings[vocab])
-        similarities[vocab] = "{:.4f}".format(sim)
+    # Calculate dot products for each word
+    similarities = {vocab: np.dot(vector, embeddings[vocab]) for vocab in vocabs}
 
-    top_n = sorted(similarities.items(), key=lambda item: item[1], reverse=True)[1:n+1]
+    # Sort by dot product and retrieve the top `n` words (excluding the input word itself)
+    top_n = sorted(similarities.items(), key=lambda item: item[1], reverse=True)
+    top_n = [item for item in top_n if item[0] != word][:n]
 
-    return [dict(zip(names, val)) for val in top_n]
+    # Format the results as a list of dictionaries
+    return [dict(zip(names, (vocab, f"{sim:.4f}"))) for vocab, sim in top_n]
